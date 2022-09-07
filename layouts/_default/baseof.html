@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{- partial "head.html" . }}
+</head>
+<body>
+    <main aria-role="main">
+        <header class="hero">
+            <div class="hero-body">
+            <h1 class="is-size-3">{{.Title}}</h1>
+            {{ with .Params.subtitle }}
+            <span class="subtitle">{{.}}</span>
+            {{ end }}
+            </div>
+        </header>
+        <div class="container is-fluid">
+            {{- block "main" . }}{{ end }}
+        </div>
+        <div class="container is-fluid">
+            {{ range first 10 .Site.RegularPages }}
+            {{ .Render "summary"}}
+            {{ end }}
+        </div>
+    </main>
+
+</body>
+</html>
