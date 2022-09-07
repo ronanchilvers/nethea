@@ -4,24 +4,31 @@
     {{- partial "head.html" . }}
 </head>
 <body>
+    {{- partial "navbar.html" . }}
     <main aria-role="main">
         <header class="hero">
             <div class="hero-body">
-            <h1 class="is-size-3">{{.Title}}</h1>
+            <h1 class="is-size-3">
+                {{.Title}}
+            </h1>
             {{ with .Params.subtitle }}
             <span class="subtitle">{{.}}</span>
             {{ end }}
             </div>
         </header>
+        <section>
         <div class="container is-fluid">
             {{- block "main" . }}{{ end }}
         </div>
-        <div class="container is-fluid">
-            {{ range first 10 .Site.RegularPages }}
-            {{ .Render "summary"}}
-            {{ end }}
-        </div>
+        </section>
     </main>
-
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+            <strong>Nethea</strong> is a world for D&D by <a href="https://github.com/ronanchilvers">Ronan Chilvers</a>. The content is licensed
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+            </p>
+        </div>
+    </footer>
 </body>
 </html>
