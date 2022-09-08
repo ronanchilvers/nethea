@@ -2,5 +2,6 @@ baseURL = "https://ronanchilvers.github.io/nethea/"
 languageCode = "en-gb"
 title = "Nethea"
 canonifyURLs = true
+
 [taxonomies]
     classification = "classifications"

@@ -8,7 +8,7 @@
 <section class="section">
     <div class="columns is-multiline">
     {{ range .Pages }}
-        <div class="column is-12-mobile is-6-tablet is-3-desktop is-2-widescreen">
+        <div class="column is-12-mobile is-6-tablet is-4-desktop is-one-fifth-widescreen">
             <a href="{{ .Permalink }}">
                 <div class="card">
                     {{ $thumbnail := printf "static/images/%s/thumbnails/%s.png" ($pageTitle | urlize ) (.Title | urlize) }}

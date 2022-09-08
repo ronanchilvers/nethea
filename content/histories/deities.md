@@ -1,0 +1,5 @@
+---
+title: Deities
+classifications:
+  - history
+---

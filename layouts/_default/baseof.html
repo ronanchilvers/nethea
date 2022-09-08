@@ -6,26 +6,10 @@
 <body>
     {{- partial "navbar.html" . }}
     <main aria-role="main">
-        <header class="hero">
-            <div class="hero-body">
-            <h1 class="is-size-3">
-                {{.Title}}
-            </h1>
-            {{ with .Params.subtitle }}
-            <span class="subtitle">{{.}}</span>
-            {{ end }}
-            </div>
-        </header>
+        {{- partial "header.html" . }}
         {{- block "main" . }}{{ end }}
+        {{- partial "footer.html" . }}
     </main>
-    <footer class="footer">
-        <div class="content has-text-centered">
-            <p>
-            <strong>Nethea</strong> is a D&D world by <a href="https://github.com/ronanchilvers">Ronan Chilvers</a>. The content is licensed
-            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
-            </p>
-        </div>
-    </footer>
     <script type="text/javascript" src="/js/scripts.js"></script>
 </body>
 </html>
