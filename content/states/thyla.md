@@ -1,6 +1,7 @@
 ---
+layout: state
 title: Thyla
-subtitle: Aloof home of the elves
+subtitle: Lofty home of the elves
 classifications:
   - "state"
 ---

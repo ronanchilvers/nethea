@@ -1,1 +1,6 @@
 /** Styles **/
+
+/** Card overrides **/
+.card {
+    height: 100%;
+}

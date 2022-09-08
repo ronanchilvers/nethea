@@ -1,0 +1,11 @@
+{{- define "main" }}
+
+<section>
+    <figure>
+        <img src="/images/states/{{ .Title | urlize }}.png">
+    </figure>
+</section>
+<section class="section">
+    {{.Content}}
+</section>
+{{- end }}{{/* end main */}}

@@ -1,11 +1,34 @@
 {{- define "main" }}
-    <h1>{{ .Title }}</h1>
-    <ul>
+{{ $pageTitle := .Title }}
+{{- if .Content }}
+<section class="section">
+    {{.Content}}
+</section>
+{{- end }}
+<section class="section">
+    <div class="columns is-multiline">
     {{ range .Pages }}
-        <li>
-            <a href="{{ .Permalink }}">{{ .Title }}</a>
-        </li>
+        <div class="column is-12-mobile is-6-tablet is-3-desktop is-2-widescreen">
+            <a href="{{ .Permalink }}">
+                <div class="card">
+                    {{ $thumbnail := printf "static/images/%s/thumbnails/%s.png" ($pageTitle | urlize ) (.Title | urlize) }}
+                {{- if (fileExists $thumbnail)}}
+                    <div class="card-image">
+                        <figure class="image">
+                            <img src="{{ replace $thumbnail "static" "" }}" alt="Placeholder image">
+                        </figure>
+                    </div>
+                {{- end }}
+                    <div class="card-content">
+                        <h2 class="title is-5">{{ .Title }}</h2>
+                    {{- if .Params.subtitle }}
+                        <p class="subtitle is-6">{{ .Params.subtitle }}</p>
+                    {{- end }}
+                    </div>
+                </div>
+            </a>
+        </div>
     {{ end }}
-    </ul>
-{{.Content}}
+    </div>
+</section>
 {{- end }}{{/* end main */}}
