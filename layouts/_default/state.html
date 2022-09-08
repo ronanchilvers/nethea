@@ -1,10 +1,13 @@
 {{- define "main" }}
 
+{{ $image := printf "static/images/states/%s.png" (.Title | urlize ) }}
+{{- if fileExists $image }}
 <section>
     <figure>
-        <img src="/images/states/{{ .Title | urlize }}.png">
+        <img src="{{ replace $image "static" "" }}">
     </figure>
 </section>
+{{- end }}
 <section class="section">
     {{.Content}}
 </section>
