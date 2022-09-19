@@ -1,0 +1,52 @@
+{{- define "main" -}}
+{{- if .Content -}}
+<section class="section">
+    {{.Content}}
+</section>
+{{- end -}}
+<section class="section">
+    <div class="timeline is-centered">
+        <header class="timeline-header">
+            <span class="tag is-medium is-primary">Present Day</span>
+        </header>
+    {{- $len := (len $.Site.Data.timeline) -}}
+    {{- $index := 0 -}}
+    {{- range sort $.Site.Data.timeline "age" "desc" -}}
+
+        {{- if eq "era" .type -}}
+
+        <div class="timeline-header">
+            <span class="tag is-large is-primary">{{ .name }}</span>
+        </div>
+        {{- if ne (add $index 1) $len -}}
+        <div class="timeline-item is-link"></div>
+        {{- end -}}
+
+        {{- else if eq "event" .type -}}
+        {{ $cr := (sub .age 4432) }}
+        {{ $ar := (sub .age 5238) }}
+
+        <div class="timeline-item is-success">
+            <div class="timeline-marker is-success"></div>
+            <div class="timeline-content">
+                <div>
+                    <div class="tag is-link1">{{- sub 5538 .age }} years ago</div>
+                    {{ if gt $cr 0 -}}<div class="tag is-info1">{{- $cr }} CR</div>{{- end }}
+                    <!-- <div class="tag is-info">{{ if lt $cr 0 -}}{{ strings.TrimLeft "-" $cr }} BCR{{- else -}}{{- $cr }} CR{{- end -}}</div> -->
+                    {{ if gt $ar 0 -}}<div class="tag is-danger1">{{ $ar }} AR</div>{{- end -}}
+                </div>
+                <p class="heading is-size-5">
+                    {{ .name }}
+                </p>
+                <!-- <p class="is-size-5">
+                    {{- sub 5538 .age }} years ago /
+                    {{ if lt $cr 0 -}}{{ strings.TrimLeft "-" $cr }} BCR{{- else -}}{{- $cr }} CR{{- end -}}
+                </p> -->
+            </div>
+        </div>
+        {{- end -}}
+    {{- $index = (add $index 1) -}}
+    {{- end -}}
+    </div>
+</section>
+{{- end -}}
