@@ -34,9 +34,10 @@ html, body {
 }
 .sidebar-section {
     font-size: 0.8rem;
-}
-.sidebar-section:not(last-child) {
     margin-bottom: 2rem;
+}
+.sidebar-section:last-child {
+    margin-bottom: 0;
 }
 .sidebar-section ul {
     list-style: none;
