@@ -1,8 +1,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ .Site.Title }}</title>
-{{- $styles_css := resources.Get "css/styles.css" | resources.Minify | resources.Fingerprint "sha512" -}}
-
 {{- range $.Site.Params.styles }}
 {{- $css := resources.Get (printf "css/%s" .) | resources.Minify | resources.Fingerprint "sha512" -}}
 <link rel="stylesheet"

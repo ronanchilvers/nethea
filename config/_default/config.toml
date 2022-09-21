@@ -7,4 +7,12 @@ canonifyURLs = true
     classification = "classifications"
 
 [params]
-    styles = [ "font-awesome.all.css", "bulma.css", "bulma-timeline.css", "styles.css" ]
+    styles = [
+        "font-awesome.all.css",
+        "bulma.css",
+        "bulma-timeline.css",
+        "app.css"
+    ]
+    scripts = [
+        "app.js"
+    ]

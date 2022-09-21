@@ -10,6 +10,12 @@
         {{- block "main" . }}{{ end }}
         {{- partial "footer.html" . }}
     </main>
-    <script type="text/javascript" src="/js/scripts.js"></script>
+{{- range $.Site.Params.scripts }}
+{{- $script := resources.Get (printf "js/%s" .) | resources.Minify | resources.Fingerprint "sha512" -}}
+    <script
+        type="text/javascript"
+        src="{{ $script.Permalink }}"
+        integrity="{{ $script.Data.Integrity }}"></script>
+{{- end -}}
 </body>
 </html>
