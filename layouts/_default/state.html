@@ -11,7 +11,7 @@
 
         {{- if and (fileExists $image_file) (fileExists $thumbnail_file) }}
             <div class="sidebar-section">
-                <figure class="state-map-thumbnail js-modal-trigger" data-target="js-modal-map" style="background-image: url({{ $thumbnail | safeCSS }})">
+                <figure class="state-map-thumbnail js-modal-trigger" data-target="js-modal-map" style="background-image: url({{ trim .Site.BaseURL "/" }}/{{ trim $thumbnail "/" | safeCSS }})">
                     <img
                         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
                         width="250"
