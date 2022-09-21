@@ -1,20 +1,39 @@
 {{- define "main" }}
 
-{{ $image := printf "static/images/states/%s.png" (.Title | urlize ) }}
-<div class="container">
-    <article>
+{{ $image_file := printf "static/images/states/%s.png" (.Title | urlize ) }}
+{{ $thumbnail_file := replace $image_file "states" "states/thumbnails" }}
+{{ $image := replace $image_file "static" "" }}
+{{ $thumbnail := replace $thumbnail_file "static" "" }}
+<div class="container is-fluid">
+    <article class="is-clearfix content">
 
-    {{- if fileExists $image }}
-        <section>
-            <figure>
-                <img src="{{ replace $image "static" "" }}">
+    {{- if fileExists $image_file }}
+        <aside class="section is-pulled-right">
+            {{- if (fileExists $thumbnail_file) -}}
+            <figure class="state-map-thumbnail js-modal-trigger" data-target="js-modal-map" style="background-image: url({{ $thumbnail | safeCSS }})">
+                <img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+                    width="250"
+                    height="250">
+                <figcaption>Map of {{ .Title }} - click to enlarge</figcaption>
             </figure>
-        </section>
+            {{- end -}}
+            <div class="modal state-map-modal" id="js-modal-map">
+                <div class="modal-background"></div>
+                <div class="modal-content">
+                    <p class="image">
+                        <img
+                            src="{{ $image }}"
+                            alt="Map of {{ .Page.Title }}"
+                            width="1024">
+                    </p>
+                </div>
+                <button class="modal-close is-large" aria-label="close"></button>
+            </div>
+        </aside>
     {{- end }}
 
-        <section>
-            <p>{{.Content}}</p>
-        </section>
+        <section class="section">{{.Content}}</section>
 
     </article>
 </div>

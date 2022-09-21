@@ -1,4 +1,5 @@
 {{- define "main" -}}
+
 {{- if .Content -}}
 <section class="section">
     {{.Content}}
@@ -36,7 +37,7 @@
                     {{ if gt $ar 0 -}}<div class="tag is-danger1">{{ $ar }} AR</div>{{- end -}}
                 </div>
                 <p class="heading is-size-5">
-                    {{ .name }}
+                    {{ .name | markdownify }}
                 </p>
                 <!-- <p class="is-size-5">
                     {{- sub 5538 .age }} years ago /

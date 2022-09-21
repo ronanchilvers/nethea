@@ -1,6 +1,44 @@
 /** Styles **/
 
-/** Card overrides **/
+html, body {
+    height: 100%;
+}
+
+/** Bulma overrides **/
 .card {
     height: 100%;
+}
+.section {
+    padding: 1.5rem 1.5rem;
+}
+.hero-body {
+    padding: 1rem 3rem;
+}
+
+/** Home page **/
+/*.kind-home {
+    background-image: url(/images/forest-blended-transparent.png);
+    background-position: center -50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}*/
+.kind-home .home-image img {
+    max-width: 1000px;
+}
+
+/** State pages **/
+.state-map-thumbnail {
+    width: 250px;
+    height: 250px;
+    cursor: pointer;
+    background-position: center center;
+    background-size: cover;
+}
+.state-map-thumbnail img {
+    vertical-align: bottom;
+    border: 1px solid #333;
+}
+.state-map-modal .modal-content {
+    width: 90%;
+    max-width: 1500px;
 }

@@ -3,7 +3,7 @@
 <head>
     {{- partial "head.html" . }}
 </head>
-<body>
+<body class="type-{{ .Type }} kind-{{ .Kind }}">
     {{- partial "navbar.html" . }}
     <main aria-role="main">
         {{- partial "header.html" . }}

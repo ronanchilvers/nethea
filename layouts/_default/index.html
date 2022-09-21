@@ -1,6 +1,12 @@
 {{- define "main" }}
-<section class="section">
-index
-{{.Content}}
-</section>
+<article>
+    <section class="section home-image has-text-centered">
+        <figure>
+            <img
+                src="/images/forest-blended.png"
+                width="100%">
+        </figure>
+    </section>
+    <section class="section">{{.Content}}</section>
+</article>
 {{- end }}{{/* end main */}}
