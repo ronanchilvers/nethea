@@ -5,3 +5,6 @@ canonifyURLs = true
 
 [taxonomies]
     classification = "classifications"
+
+[params]
+    styles = [ "font-awesome.all.css", "bulma.css", "bulma-timeline.css", "styles.css" ]
