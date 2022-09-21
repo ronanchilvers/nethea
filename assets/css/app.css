@@ -21,16 +21,35 @@ html, body {
 }
 
 /** State pages **/
+
+.state-sidebar {
+    float: right;
+    margin: 2rem;
+}
+.state-sidebar figure {
+    margin: 0 !important;
+}
+.sidebar-section {
+    font-size: 0.8rem;
+}
+.sidebar-section:not(last-child) {
+    margin-bottom: 2rem;
+}
+.sidebar-section ul {
+    list-style: none;
+    margin: 0;
+}
+
 .state-map-thumbnail {
     width: 250px;
     height: 250px;
     cursor: pointer;
     background-position: center center;
     background-size: cover;
+    border: 1px solid grey;
 }
 .state-map-thumbnail img {
     vertical-align: bottom;
-    border: 1px solid #333;
 }
 .state-map-modal .modal-content {
     width: 90%;
