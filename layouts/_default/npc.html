@@ -3,7 +3,7 @@
 {{ $image_file := printf "static/images/npcs/%s.jpg" (.Title | urlize ) }}
 {{ $image := replace $image_file "static" "" }}
 <div class="container is-fluid is-clearfix">
-    <article class="is-pulled-right content">
+    <article class="content">
 
         <aside class="sidebar">
         {{- if (fileExists $image_file) }}

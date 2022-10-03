@@ -5,66 +5,65 @@
 {{ $image := replace $image_file "static" "" }}
 {{ $thumbnail := replace $thumbnail_file "static" "" }}
 <div class="container is-fluid is-clearfix">
-    <article class="is-pulled-right content">
 
-        <aside class="sidebar">
+    <aside class="sidebar">
 
-        {{- if and (fileExists $image_file) (fileExists $thumbnail_file) }}
-            <div class="sidebar-section">
-                <figure class="map-thumbnail js-modal-trigger" data-target="js-modal-map" style="background-image: url({{ trim .Site.BaseURL "/" }}/{{ trim $thumbnail "/" | safeCSS }})">
-                    <img
-                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
-                        width="250"
-                        height="250">
-                    <figcaption>Map of {{ .Title }} - click to enlarge</figcaption>
-                </figure>
-                <div class="modal map-modal" id="js-modal-map">
-                    <div class="modal-background"></div>
-                    <div class="modal-content">
-                        <p class="image">
-                            <img
-                                src="{{ $image }}"
-                                alt="Map of {{ .Page.Title }}"
-                                width="1024">
-                        </p>
-                    </div>
-                    <button class="modal-close is-large" aria-label="close"></button>
+    {{- if and (fileExists $image_file) (fileExists $thumbnail_file) }}
+        <div class="sidebar-section">
+            <figure class="map-thumbnail js-modal-trigger" data-target="js-modal-map" style="background-image: url({{ trim .Site.BaseURL "/" }}/{{ trim $thumbnail "/" | safeCSS }})">
+                <img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+                    width="250"
+                    height="250">
+                <figcaption>Map of {{ .Title }} - click to enlarge</figcaption>
+            </figure>
+            <div class="modal map-modal" id="js-modal-map">
+                <div class="modal-background"></div>
+                <div class="modal-content">
+                    <p class="image">
+                        <img
+                            src="{{ $image }}"
+                            alt="Map of {{ .Page.Title }}"
+                            width="1024">
+                    </p>
                 </div>
+                <button class="modal-close is-large" aria-label="close"></button>
             </div>
-        {{- end }}
+        </div>
+    {{- end }}
 
-        {{- if (isset .Params "metadata") -}}
-            {{- if gt (len .Params.metadata) 0 -}}
-            <div class="sidebar-section">
-            {{- range $key, $value := .Params.metadata -}}
-                <h2>{{ $key | humanize | title }}</h2>
-                <table class="table is-bordered">
-                {{- range $label, $label_value := $value -}}
-                    <tr>
-                        <th>{{ $label | humanize | title }}</th>
-                        <td>
-                        {{- if or (reflect.IsMap $label_value) (reflect.IsSlice $label_value) -}}
-                            <ul>
-                            {{- range $sub_value := $label_value -}}
-                                <li>{{ $sub_value }}</li>
-                            {{- end -}}
-                            </ul>
-                        {{- else -}}
-                            {{ $label_value }}
+    {{- if (isset .Params "metadata") -}}
+        {{- if gt (len .Params.metadata) 0 -}}
+        <div class="sidebar-section">
+        {{- range $key, $value := .Params.metadata -}}
+            <h2>{{ $key | humanize | title }}</h2>
+            <table class="table is-bordered">
+            {{- range $label, $label_value := $value -}}
+                <tr>
+                    <th>{{ $label | humanize | title }}</th>
+                    <td>
+                    {{- if or (reflect.IsMap $label_value) (reflect.IsSlice $label_value) -}}
+                        <ul>
+                        {{- range $sub_value := $label_value -}}
+                            <li>{{ $sub_value }}</li>
                         {{- end -}}
-                        </td>
-                    </tr>
-                {{- end -}}
-                </table>
+                        </ul>
+                    {{- else -}}
+                        {{ $label_value }}
+                    {{- end -}}
+                    </td>
+                </tr>
             {{- end -}}
-            </div>
-            {{- end -}}
+            </table>
         {{- end -}}
+        </div>
+        {{- end -}}
+    {{- end -}}
 
-        </aside>
+    </aside>
 
-        <section class="section">{{.Content}}</section>
-
-    </article>
+    <section class="section">
+        <article class="content">{{.Content}}</article>
+    </section>
 </div>
 {{- end }}{{/* end main */}}
