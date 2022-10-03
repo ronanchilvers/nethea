@@ -22,19 +22,20 @@ html, body {
 
 /** State pages **/
 
-.state-sidebar {
+.sidebar {
     float: right;
     margin: 2rem;
     padding: 1rem;
     background-color: #f0f0f0;
     border-radius: 5px;
 }
-.state-sidebar figure {
+.sidebar figure {
     margin: 0 !important;
 }
 .sidebar-section {
     font-size: 0.8rem;
     margin-bottom: 2rem;
+    max-width: 250px
 }
 .sidebar-section:last-child {
     margin-bottom: 0;
@@ -43,22 +44,22 @@ html, body {
     list-style: none;
     margin: 0;
 }
-.state-map-thumbnail {
+.map-thumbnail {
     width: 250px;
     height: 250px;
     cursor: pointer;
-    background-position: center center;
+    background-position: top center;
     background-size: cover;
     border: 1px solid grey;
     border-radius: 5px;
 }
-.state-map-thumbnail img {
+.map-thumbnail img {
     vertical-align: bottom;
 }
-.state-map-thumbnail figcaption {
+.map-thumbnail figcaption {
     padding-top: 0.5rem;
 }
-.state-map-modal .modal-content {
+.map-modal .modal-content {
     width: 90%;
     max-width: 1500px;
 }

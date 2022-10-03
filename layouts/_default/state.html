@@ -1,24 +1,24 @@
 {{- define "main" }}
 
-{{ $image_file := printf "static/images/states/%s.png" (.Title | urlize ) }}
+{{ $image_file := printf "static/images/states/%s.jpg" (.Title | urlize ) }}
 {{ $thumbnail_file := replace $image_file "states" "states/thumbnails" }}
 {{ $image := replace $image_file "static" "" }}
 {{ $thumbnail := replace $thumbnail_file "static" "" }}
 <div class="container is-fluid is-clearfix">
     <article class="is-pulled-right content">
 
-        <aside class="state-sidebar">
+        <aside class="sidebar">
 
         {{- if and (fileExists $image_file) (fileExists $thumbnail_file) }}
             <div class="sidebar-section">
-                <figure class="state-map-thumbnail js-modal-trigger" data-target="js-modal-map" style="background-image: url({{ trim .Site.BaseURL "/" }}/{{ trim $thumbnail "/" | safeCSS }})">
+                <figure class="map-thumbnail js-modal-trigger" data-target="js-modal-map" style="background-image: url({{ trim .Site.BaseURL "/" }}/{{ trim $thumbnail "/" | safeCSS }})">
                     <img
                         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
                         width="250"
                         height="250">
                     <figcaption>Map of {{ .Title }} - click to enlarge</figcaption>
                 </figure>
-                <div class="modal state-map-modal" id="js-modal-map">
+                <div class="modal map-modal" id="js-modal-map">
                     <div class="modal-background"></div>
                     <div class="modal-content">
                         <p class="image">
