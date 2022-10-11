@@ -32,13 +32,41 @@ html, body {
 .sidebar figure {
     margin: 0 !important;
 }
+.sidebar figcaption {
+    font-size: 0.7rem;
+    text-align: center;
+}
 .sidebar-section {
     font-size: 0.8rem;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     max-width: 250px
 }
 .sidebar-section:last-child {
     margin-bottom: 0;
+}
+.sidebar-section h2 {
+    padding: 0.25rem 0.5rem;
+    text-align: center;
+    background-color: #ddd;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.sidebar-section .table {
+    width: 100%;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.sidebar-section .table th,
+.sidebar-section .table td {
+    border: none;
+    border-bottom: 1px solid #ddd;
+}
+.sidebar-section .table th {
+    border-right: 1px solid #ddd;
+}
+.sidebar-section .table tr:last-child th,
+.sidebar-section .table tr:last-child td {
+    border-bottom: none;
 }
 .sidebar-section ul {
     list-style: none;

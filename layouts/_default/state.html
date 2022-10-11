@@ -36,7 +36,7 @@
         {{- if gt (len .Params.metadata) 0 -}}
         <div class="sidebar-section">
         {{- range $key, $value := .Params.metadata -}}
-            <h2>{{ $key | humanize | title }}</h2>
+            <h2 class="is-size-6">{{ $key | humanize | title }}</h2>
             <table class="table is-bordered">
             {{- range $label, $label_value := $value -}}
                 <tr>

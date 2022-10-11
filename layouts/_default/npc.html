@@ -11,7 +11,7 @@
                     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
                     width="250"
                     height="250">
-                <figcaption>{{ .Title }}</figcaption>
+                <figcaption class="is-size-7">{{ .Title }}</figcaption>
             </figure>
             <div class="modal" id="js-modal">
                 <div class="modal-background"></div>
@@ -31,7 +31,7 @@
         {{- if gt (len .Params.metadata) 0 -}}
         <div class="sidebar-section">
         {{- range $key, $value := .Params.metadata -}}
-            <h2>{{ $key | humanize | title }}</h2>
+            <h2 class="is-size-6">{{ $key | humanize | title }}</h2>
             <table class="table is-bordered">
             {{- range $label, $label_value := $value -}}
                 <tr>
