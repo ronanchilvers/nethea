@@ -6,6 +6,7 @@ classifications:
   - npcs
 tags:
   - anatc
+location: Fallshire
 metadata:
   background:
     born: Unknown
