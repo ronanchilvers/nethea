@@ -1,5 +1,5 @@
 ---
-draft: false
+draft: true
 title: Koby Oldman
 layout: npc
 classifications:
